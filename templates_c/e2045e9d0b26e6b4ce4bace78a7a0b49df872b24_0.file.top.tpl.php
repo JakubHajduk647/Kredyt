@@ -1,11 +1,11 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-08 13:22:12
+/* Smarty version 3.1.34-dev-7, created on 2020-12-08 16:27:23
   from 'C:\xampp\htdocs\kredyt.\templates\top.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fcf6ff4e7c274_69432668',
+  'unifunc' => 'content_5fcf9b5b647416_90887199',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
@@ -20,7 +20,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   array (
   ),
 ),false)) {
-function content_5fcf6ff4e7c274_69432668 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fcf9b5b647416_90887199 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 <html>
     <head>

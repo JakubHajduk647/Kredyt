@@ -5,4 +5,4 @@ require_once dirname(__FILE__).'/config.php';
 //header("Location: "._APP_URL."/app/calc_view.php");
 
 //przekazanie żądania do następnego dokumentu ("forward")
-include _ROOT_PATH.'/app/kredyt.php';
+include $config->root_path.'/app/kredyt.php';

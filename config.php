@@ -1,18 +1,20 @@
 <?php
-define('_SERVER_NAME', 'localhost');
-define('_SERVER_URL', 'http://'._SERVER_NAME);
-define('_APP_ROOT', '/kredyt');
-define('_APP_URL', _SERVER_URL._APP_ROOT);
-define("_ROOT_PATH", dirname(__FILE__));
+require_once 'Config.class.php';
+require_once (dirname(__FILE__).'./lib/smarty/libs/Smarty.class.php');
+$config = new Config();
 
-require_once (_ROOT_PATH.'./lib/smarty-3.1.35/libs/Smarty.class.php');
+$config->root_path = dirname(__FILE__);
+$config->server_name = 'localhost:80';
+$config->server_url = 'http://'.$config->server_name;
+$config->app_root = '/kredyt';
+$config->app_url = $config->server_url.$config->app_root;
+
+
 $smarty = new Smarty;
-$smarty->template_dir = _ROOT_PATH.'./templates';
-$smarty->assign('app_url',_APP_URL);
+$smarty->template_dir = $config->root_path.'./templates';
+$smarty->assign('app_url',$config->app_url);
 
-function out(&$param){
-	if (isset($param)){
-		echo $param;
-	}
-}
+
+
+
 ?>

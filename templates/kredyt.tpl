@@ -35,27 +35,27 @@
                                     <div class="row gtr-uniform">
                                         <div class="col-6 col-12-xsmall">
                                             <label for= "kowta">Kwota</label>
-                                            <input type="text" name="kwota" id="kwota" value="{$kwota}" placeholder="Kwota" />
+                                            <input type="text" name="kwota" id="kwota" value="{$form->kwota}" placeholder="Kwota" />
                                         </div>
                                         <div class="col-6 col-12-xsmall">
                                             <label for= "kowta">Ilość rat</label>
-                                            <input type="text" name="raty" id="raty" value="{$raty}" placeholder="Raty" />
+                                            <input type="text" name="raty" id="raty" value="{$form->raty}" placeholder="Raty" />
                                         </div>
                                         <div class="col-6 col-12-xsmall">
                                             <label for= "kowta">Oprocentowanie</label>
-                                            <input type="text" name="procent" id="procent" value="{$procent}" placeholder="Oprocentowanie" />
+                                            <input type="text" name="procent" id="procent" value="{$form->procent}" placeholder="Oprocentowanie" />
                                         </div>
 
                                         <div class="col-4 col-12-small">
-                                            <input type="radio" id="zmienne" name="demo-priority" checked>
+                                            <input type="radio" id="zmienne" name="op" value="zmienne" checked>
                                             <label for="zmienne">raty zmienne</label>
-                                            <input type="radio" id="stale" name="demo-priority">
+                                            <input type="radio" id="stale" name="op" value="stale">
                                             <label for="stale">raty stałe</label>
                                         </div>
                                         <div class="col-12">
-                                            <ul class="actions">
+                                           
                                                 <input type="submit" value="Oblicz" class="primary" />
-                                            </ul>
+                                            
                                         </div>
 
                                     </div>
@@ -68,7 +68,7 @@
                                 <li><a type="submit" class="button">Oblicz</a></li>
                             </ul>-->
                         </div>
-                        <span class="image"><img src="images/pic01.jpg" alt="" /></span>
+                        <span class="image"><img src="{$app_url}/images/pic01.jpg" alt="" /></span>
                     </div>
                 </section>
 
