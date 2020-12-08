@@ -2,8 +2,7 @@
 
 require_once dirname(__FILE__) . '/../config.php';
 
-// 1. pobranie parametrów
-include _ROOT_PATH . '/app/security/check.php';
+//include _ROOT_PATH . '/app/security/check.php';
 
 function getParams(&$kwota, &$raty, &$procent, &$operation) {
     if (filter_has_var(INPUT_POST, 'kwota')) {
@@ -43,6 +42,9 @@ $procent = null;
 $operation = null;
 $result = null;
 $messages = array();
+$smarty->assign('kwota',$kwota);
+$smarty->assign('procent',$procent);
+$smarty->assign('raty',$raty);
 
 getParams($kwota, $raty, $procent, $operation);
 validate($kwota, $raty, $procent, $messages);
@@ -82,4 +84,4 @@ function ratyStale($k, $p, $r) {
 
 //definicja zmiennych kontrolera
 
-include 'kredyt_view.php';
+$smarty->display('kredyt.tpl');

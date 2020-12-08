@@ -53,7 +53,7 @@ getParamsLogin($form);
 
 if (!validateLogin($form,$messages)) {
 	//jeśli błąd logowania to wyświetl formularz z tekstami z $messages
-	include _ROOT_PATH.'/app/security/login_view.php';
+	$smarty->display('login.tpl');
 } else { 
 	//ok przekieruj lub "forward" na stronę główną
 	
