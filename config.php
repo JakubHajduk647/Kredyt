@@ -13,7 +13,7 @@ $config->app_url = $config->server_url.$config->app_root;
 $smarty = new Smarty;
 $smarty->template_dir = $config->root_path.'./templates';
 $smarty->assign('app_url',$config->app_url);
-
+$smarty->clearAllCache();
 
 
 

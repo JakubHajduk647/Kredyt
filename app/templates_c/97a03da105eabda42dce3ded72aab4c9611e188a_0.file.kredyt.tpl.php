@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-08 19:33:37
+/* Smarty version 3.1.34-dev-7, created on 2020-12-09 20:02:06
   from 'C:\xampp\htdocs\kredyt.\templates\kredyt.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fcfc70131f870_05079416',
+  'unifunc' => 'content_5fd11f2e5c87d4_03164498',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '97a03da105eabda42dce3ded72aab4c9611e188a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kredyt.\\templates\\kredyt.tpl',
-      1 => 1607452411,
+      1 => 1607540523,
       2 => 'file',
     ),
   ),
@@ -22,172 +22,221 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:bottom.tpl' => 1,
   ),
 ),false)) {
-function content_5fcfc70131f870_05079416 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd11f2e5c87d4_03164498 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
-        <!-- Wrapper -->
-        <?php $_smarty_tpl->_subTemplateRender("file:top.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+<!-- Wrapper -->
+<?php $_smarty_tpl->_subTemplateRender("file:top.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-            <!-- Header -->
-            <header id="header" class="alt">
-                <span class="logo"> </span>
-                <h1>Kalkulator kredytowy</h1>
-                <p></p></header>
+<!-- Header -->
+<header id="header" class="alt">
+    <span class="logo"> </span>
+    <h1>Kalkulator kredytowy</h1>
+    <p></p></header>
 
-            <!-- Nav -->
-            <!--<nav id="nav">
-                    <ul>
-                            <li><a href="#intro" class="active">Introduction</a></li>
-                            <li><a href="#first">First Section</a></li>
-                            <li><a href="#second">Second Section</a></li>
-                            <li><a href="#cta">Get Started</a></li>
-                    </ul>
-            </nav>-->
+<!-- Nav -->
+<!--<nav id="nav">
+        <ul>
+                <li><a href="#intro" class="active">Introduction</a></li>
+                <li><a href="#first">First Section</a></li>
+                <li><a href="#second">Second Section</a></li>
+                <li><a href="#cta">Get Started</a></li>
+        </ul>
+</nav>-->
 
-            <!-- Main -->
-            <div id="main">
+<!-- Main -->
+<div id="main">
 
-                <!-- Introduction -->
-                <section id="intro" class="main">
-                    <div class="spotlight">
-                        <div class="content">
-                            <header class="major">
-                                <h2>Oblicz wysokość raty</h2>
-                            </header>
-                            <section>
-                                <h2></h2>
-                                <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+    <!-- Introduction -->
+    <section id="intro" class="main">
+        <div class="spotlight">
+            <div class="content">
+                <header class="major">
+                    <h2>Oblicz wysokość raty</h2>
+                </header>
+                <section>
+                    <h2></h2>
+                    <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
 /app/kredyt.php">
-                                    <div class="row gtr-uniform">
-                                        <div class="col-6 col-12-xsmall">
-                                            <label for= "kowta">Kwota</label>
-                                            <input type="text" name="kwota" id="kwota" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->kwota;?>
+                        <div class="row gtr-uniform">
+                            <div class="col-6 col-12-xsmall">
+                                <label for= "kowta">Kwota</label>
+                                <input type="text" name="kwota" id="kwota" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->kwota;?>
 " placeholder="Kwota" />
-                                        </div>
-                                        <div class="col-6 col-12-xsmall">
-                                            <label for= "kowta">Ilość rat</label>
-                                            <input type="text" name="raty" id="raty" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->raty;?>
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                <label for= "kowta">Ilość rat</label>
+                                <input type="text" name="raty" id="raty" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->raty;?>
 " placeholder="Raty" />
-                                        </div>
-                                        <div class="col-6 col-12-xsmall">
-                                            <label for= "kowta">Oprocentowanie</label>
-                                            <input type="text" name="procent" id="procent" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->procent;?>
+                            </div>
+                            <div class="col-6 col-12-xsmall">
+                                <label for= "kowta">Oprocentowanie</label>
+                                <input type="text" name="procent" id="procent" value="<?php echo $_smarty_tpl->tpl_vars['form']->value->procent;?>
 " placeholder="Oprocentowanie" />
-                                        </div>
+                            </div>
 
-                                        <div class="col-4 col-12-small">
-                                            <input type="radio" id="zmienne" name="op" value="zmienne" checked>
-                                            <label for="zmienne">raty zmienne</label>
-                                            <input type="radio" id="stale" name="op" value="stale">
-                                            <label for="stale">raty stałe</label>
-                                        </div>
-                                        <div class="col-12">
-                                           
-                                                <input type="submit" value="Oblicz" class="primary" />
-                                            
-                                        </div>
+                            <div class="col-4 col-12-small">
+                                <input type="radio" id="zmienne" name="op" value="zmienne" checked>
+                                <label for="zmienne">raty zmienne</label>
+                                <input type="radio" id="stale" name="op" value="stale">
+                                <label for="stale">raty stałe</label>
+                            </div>
+                            <div class="col-12">
 
-                                    </div>
-                                </form>
-                            </section>
-                            
+                                <input type="submit" value="Oblicz" class="primary" />
 
+                            </div>
 
-                           <!-- <ul class="actions">
-                                <li><a type="submit" class="button">Oblicz</a></li>
-                            </ul>-->
                         </div>
-                        <span class="image"><img src="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
-/images/pic01.jpg" alt="" /></span>
-                    </div>
+                    </form>
                 </section>
 
-                <!-- First Section -->
 
 
-                <!-- Second Section -->
-
-
-                <!-- Get Started -->
-
+                <!-- <ul class="actions">
+                     <li><a type="submit" class="button">Oblicz</a></li>
+                 </ul>-->
             </div>
-
-            <!-- Footer -->
-            <!---->
+            <span class="image"><img src="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
+/images/pic01.jpg" alt="" /></span>
         </div>
-            
-       <!-- <?php echo '<?php
+    </section>
+
+    <!-- First Section -->
+
+
+    <!-- Second Section -->
+
+
+    <!-- Get Started -->
+
+</div>
+
+<!-- Footer -->
+<!---->
+</div>
+<div>
+    <?php echo $_smarty_tpl->tpl_vars['result']->value;?>
+
+</div>
+<div class="messages">
+
+        <?php if ($_smarty_tpl->tpl_vars['messages']->value->isError()) {?>
+        <h4>Wystąpiły błędy: </h4>
+        <ol class="err">
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value->getErrors(), 'err');
+$_smarty_tpl->tpl_vars['err']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['err']->value) {
+$_smarty_tpl->tpl_vars['err']->do_else = false;
+?>
+                <li><?php echo $_smarty_tpl->tpl_vars['err']->value;?>
+</li>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        </ol>
+    <?php }?>
+
+        <?php if ($_smarty_tpl->tpl_vars['messages']->value->isInfo()) {?>
+        <h4>Informacje: </h4>
+        <ol class="inf">
+            <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value->getInfos(), 'inf');
+$_smarty_tpl->tpl_vars['inf']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['inf']->value) {
+$_smarty_tpl->tpl_vars['inf']->do_else = false;
+?>
+                <li><?php echo $_smarty_tpl->tpl_vars['inf']->value;?>
+</li>
+                <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+        </ol>
+    <?php }?>
+
+    <?php if ((isset($_smarty_tpl->tpl_vars['result']->value))) {?>
+        <h4>Wynik</h4>
+        <p class="res">
+            <?php echo $_smarty_tpl->tpl_vars['result']->value;?>
+
+        </p>
+    <?php }?>
+
+</div>
+
+<!-- <?php echo '<?php
 ';?>
 //wyświeltenie listy błędów, jeśli istnieją
-                            if (isset($messages)) {
-                                if (count($messages) > 0) {
-                                    echo '<ol style="margin: 20px; padding: 10px 10px 10px 30px; border-radius: 5px; background-color: #f88; width:300px;">';
-                                    foreach ($messages as $key => $msg) {
-                                        echo '<li>' . $msg . '</li>';
-                                    }
-                                    echo '</ol>';
-                                }
-                            }
-                            <?php echo '?>';?>
+                     if (isset($messages)) {
+                         if (count($messages) > 0) {
+                             echo '<ol style="margin: 20px; padding: 10px 10px 10px 30px; border-radius: 5px; background-color: #f88; width:300px;">';
+                             foreach ($messages as $key => $msg) {
+                                 echo '<li>' . $msg . '</li>';
+                             }
+                             echo '</ol>';
+                         }
+                     }
+                     <?php echo '?>';?>
 
-                            <?php echo '<?php ';?>
+                     <?php echo '<?php ';?>
 if (isset($result)) { <?php echo '?>';?>
 
-                                <div style="margin: 20px; padding: 10px; float:left; border-radius: 5px; background-color: #ff0; width:300px;">
-                                    <?php echo '<?php
-                                    ';?>
+                         <div style="margin: 20px; padding: 10px; float:left; border-radius: 5px; background-color: #ff0; width:300px;">
+                             <?php echo '<?php
+                             ';?>
 foreach ($result as $value) {
 
-                                        print $value . "<br/>";
-                                    }
-                                    <?php echo '?>';?>
+                                 print $value . "<br/>";
+                             }
+                             <?php echo '?>';?>
 
-                                </div>
-                            <?php echo '<?php ';?>
+                         </div>
+                     <?php echo '<?php ';?>
 } <?php echo '?>';?>
 
 
-                            <?php echo '<?php ';?>
+                     <?php echo '<?php ';?>
 if (isset($lacznie)) { <?php echo '?>';?>
 
-                                <div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: green; width:300px; float:left;">
-                                    <?php echo '<?php
-                                    ';?>
+                         <div style="margin: 20px; padding: 10px; border-radius: 5px; background-color: green; width:300px; float:left;">
+                             <?php echo '<?php
+                             ';?>
 echo "Łącznie: " . round($lacznie, 2);
-                                    <?php echo '?>';?>
+                             <?php echo '?>';?>
 
-                                </div>
-                            <?php echo '<?php ';?>
+                         </div>
+                     <?php echo '<?php ';?>
 } <?php echo '?>';?>
 
-       -->
-                            
+-->
 
-        <!-- Scripts -->
-        <?php echo '<script'; ?>
+
+<!-- Scripts -->
+<?php echo '<script'; ?>
  src="assets/js/jquery.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="assets/js/jquery.scrollex.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="assets/js/jquery.scrolly.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="assets/js/browser.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="assets/js/breakpoints.min.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="assets/js/util.js"><?php echo '</script'; ?>
 >
-        <?php echo '<script'; ?>
+<?php echo '<script'; ?>
  src="assets/js/main.js"><?php echo '</script'; ?>
 >
-        <?php $_smarty_tpl->_subTemplateRender("file:bottom.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
+<?php $_smarty_tpl->_subTemplateRender("file:bottom.tpl", $_smarty_tpl->cache_id, $_smarty_tpl->compile_id, 0, $_smarty_tpl->cache_lifetime, array(), 0, false);
 ?>
 
-   <?php }
+<?php }
 }

@@ -105,7 +105,11 @@ class KredytCtrl {
         (float) $p1 = $p / 100;
         $pow = pow(12 / (12 + $p1), $r);
         $ratyResult = $k * $p1 / (12 * (1 - ($pow)));
-        return $ratyResult;
+        $ratyStaleResult= new KredytResult;
+        $ratyStaleResult->result = $ratyResult;
+        $ratyStaleResult->lacznie = $ratyResult *$r;
+        
+        return $ratyStaleResult;
     }
 
     /**
@@ -118,7 +122,8 @@ class KredytCtrl {
         $smarty->assign('config', $config);
         $smarty->assign('messages', $this->messages);
         $smarty->assign('form', $this->form);
-        $smarty->assign('res', $this->result);
+        $smarty->assign('result', $this->result->result);
+        $smarty->assign('lacznie', $this->result->lacznie);
         
         $smarty->display('kredyt.tpl');
     }
