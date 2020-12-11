@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-09 20:02:06
+/* Smarty version 3.1.34-dev-7, created on 2020-12-11 16:49:06
   from 'C:\xampp\htdocs\kredyt.\templates\kredyt.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fd11f2e5c87d4_03164498',
+  'unifunc' => 'content_5fd394f225dc92_09248005',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
     '97a03da105eabda42dce3ded72aab4c9611e188a' => 
     array (
       0 => 'C:\\xampp\\htdocs\\kredyt.\\templates\\kredyt.tpl',
-      1 => 1607540523,
+      1 => 1607701742,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:bottom.tpl' => 1,
   ),
 ),false)) {
-function content_5fd11f2e5c87d4_03164498 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd394f225dc92_09248005 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Wrapper -->
@@ -77,9 +77,9 @@ function content_5fd11f2e5c87d4_03164498 (Smarty_Internal_Template $_smarty_tpl)
                             </div>
 
                             <div class="col-4 col-12-small">
-                                <input type="radio" id="zmienne" name="op" value="zmienne" checked>
+                                <input type="radio" id="zmienne" name="operation" value="zmienne" checked>
                                 <label for="zmienne">raty zmienne</label>
-                                <input type="radio" id="stale" name="op" value="stale">
+                                <input type="radio" id="stale" name="operation" value="stale">
                                 <label for="stale">raty stałe</label>
                             </div>
                             <div class="col-12">
@@ -101,6 +101,71 @@ function content_5fd11f2e5c87d4_03164498 (Smarty_Internal_Template $_smarty_tpl)
             <span class="image"><img src="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
 /images/pic01.jpg" alt="" /></span>
         </div>
+
+
+        <div class="table-wrapper"><!--wynik-->
+            <table style="font-weight: 300 ;color: #636363" >
+
+                <?php if ((isset($_smarty_tpl->tpl_vars['result']->value))) {?>
+                    <h4>Wynik:</h4>
+                    <tr><td>Łącznie:</td> <td><?php echo sprintf("%.2f",$_smarty_tpl->tpl_vars['result']->value->lacznie);?>
+</td></tr>
+                    <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['result']->value->result, 'r', false, 'k');
+$_smarty_tpl->tpl_vars['r']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['k']->value => $_smarty_tpl->tpl_vars['r']->value) {
+$_smarty_tpl->tpl_vars['r']->do_else = false;
+?>
+                        <tr><td><?php echo $_smarty_tpl->tpl_vars['k']->value;?>
+</td> <td><?php echo $_smarty_tpl->tpl_vars['r']->value;?>
+</td></tr>
+                    <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+
+                <?php }?>
+            </table>
+        </div>
+        <div class="messages">
+            <div>
+                                <?php if ($_smarty_tpl->tpl_vars['messages']->value->isError()) {?>
+                    <h4>Wystąpiły błędy: </h4>
+                    <ol class="error">
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value->getErrors(), 'err');
+$_smarty_tpl->tpl_vars['err']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['err']->value) {
+$_smarty_tpl->tpl_vars['err']->do_else = false;
+?>
+                            <li><?php echo $_smarty_tpl->tpl_vars['err']->value;?>
+</li>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                    </ol>
+                <?php }?>
+            </div>
+                        <div>
+                <?php if ($_smarty_tpl->tpl_vars['messages']->value->isInfo()) {?>
+                    <h4>Informacje: </h4>
+                    <ol class="info">
+                        <?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value->getInfos(), 'inf');
+$_smarty_tpl->tpl_vars['inf']->do_else = true;
+if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['inf']->value) {
+$_smarty_tpl->tpl_vars['inf']->do_else = false;
+?>
+                            <li><?php echo $_smarty_tpl->tpl_vars['inf']->value;?>
+</li>
+                            <?php
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+                    </ol>
+                <?php }?>
+            </div>
+
+        </div>
+
     </section>
 
     <!-- First Section -->
@@ -115,59 +180,12 @@ function content_5fd11f2e5c87d4_03164498 (Smarty_Internal_Template $_smarty_tpl)
 
 <!-- Footer -->
 <!---->
-</div>
-<div>
-    <?php echo $_smarty_tpl->tpl_vars['result']->value;?>
 
-</div>
-<div class="messages">
 
-        <?php if ($_smarty_tpl->tpl_vars['messages']->value->isError()) {?>
-        <h4>Wystąpiły błędy: </h4>
-        <ol class="err">
-            <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value->getErrors(), 'err');
-$_smarty_tpl->tpl_vars['err']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['err']->value) {
-$_smarty_tpl->tpl_vars['err']->do_else = false;
-?>
-                <li><?php echo $_smarty_tpl->tpl_vars['err']->value;?>
-</li>
-                <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-        </ol>
-    <?php }?>
-
-        <?php if ($_smarty_tpl->tpl_vars['messages']->value->isInfo()) {?>
-        <h4>Informacje: </h4>
-        <ol class="inf">
-            <?php
-$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_smarty_tpl->tpl_vars['messages']->value->getInfos(), 'inf');
-$_smarty_tpl->tpl_vars['inf']->do_else = true;
-if ($_from !== null) foreach ($_from as $_smarty_tpl->tpl_vars['inf']->value) {
-$_smarty_tpl->tpl_vars['inf']->do_else = false;
-?>
-                <li><?php echo $_smarty_tpl->tpl_vars['inf']->value;?>
-</li>
-                <?php
-}
-$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
-        </ol>
-    <?php }?>
-
-    <?php if ((isset($_smarty_tpl->tpl_vars['result']->value))) {?>
-        <h4>Wynik</h4>
-        <p class="res">
-            <?php echo $_smarty_tpl->tpl_vars['result']->value;?>
-
-        </p>
-    <?php }?>
-
-</div>
 
 <!-- <?php echo '<?php
 ';?>
+style="background-color:rgba(204,114,135,0.3);">
 //wyświeltenie listy błędów, jeśli istnieją
                      if (isset($messages)) {
                          if (count($messages) > 0) {

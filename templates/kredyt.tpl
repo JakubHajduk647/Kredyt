@@ -47,9 +47,9 @@
                             </div>
 
                             <div class="col-4 col-12-small">
-                                <input type="radio" id="zmienne" name="op" value="zmienne" checked>
+                                <input type="radio" id="zmienne" name="operation" value="zmienne" checked>
                                 <label for="zmienne">raty zmienne</label>
-                                <input type="radio" id="stale" name="op" value="stale">
+                                <input type="radio" id="stale" name="operation" value="stale">
                                 <label for="stale">raty stałe</label>
                             </div>
                             <div class="col-12">
@@ -70,6 +70,51 @@
             </div>
             <span class="image"><img src="{$app_url}/images/pic01.jpg" alt="" /></span>
         </div>
+
+
+        <div class="table-wrapper"><!--wynik-->
+            <table style="font-weight: 300 ;color: #636363" >
+
+                {if isset($result)}
+                    <h4>Wynik:</h4>
+                    <tr><td>Łącznie:</td> <td>{$result->lacznie|string_format:"%.2f"}</td></tr>
+                    {foreach from=$result->result key=k item=r}
+                        <tr><td>{$k}</td> <td>{$r}</td></tr>
+                    {/foreach}
+
+                {/if}
+            </table>
+        </div>
+        <div class="messages">
+            <div>
+                {* wyświeltenie listy błędów, jeśli istnieją *}
+                {if $messages->isError()}
+                    <h4>Wystąpiły błędy: </h4>
+                    <ol class="error">
+                        {foreach $messages->getErrors() as $err}
+                            {strip}
+                                <li>{$err}</li>
+                                {/strip}
+                            {/foreach}
+                    </ol>
+                {/if}
+            </div>
+            {* wyświeltenie listy informacji, jeśli istnieją *}
+            <div>
+                {if $messages->isInfo()}
+                    <h4>Informacje: </h4>
+                    <ol class="info">
+                        {foreach $messages->getInfos() as $inf}
+                            {strip}
+                                <li>{$inf}</li>
+                                {/strip}
+                            {/foreach}
+                    </ol>
+                {/if}
+            </div>
+
+        </div>
+
     </section>
 
     <!-- First Section -->
@@ -84,46 +129,11 @@
 
 <!-- Footer -->
 <!---->
-</div>
-<div>
-    {$result}
-</div>
-<div class="messages">
 
-    {* wyświeltenie listy błędów, jeśli istnieją *}
-    {if $messages->isError()}
-        <h4>Wystąpiły błędy: </h4>
-        <ol class="err">
-            {foreach $messages->getErrors() as $err}
-                {strip}
-                    <li>{$err}</li>
-                    {/strip}
-                {/foreach}
-        </ol>
-    {/if}
 
-    {* wyświeltenie listy informacji, jeśli istnieją *}
-    {if $messages->isInfo()}
-        <h4>Informacje: </h4>
-        <ol class="inf">
-            {foreach $messages->getInfos() as $inf}
-                {strip}
-                    <li>{$inf}</li>
-                    {/strip}
-                {/foreach}
-        </ol>
-    {/if}
-
-    {if isset($result)}
-        <h4>Wynik</h4>
-        <p class="res">
-            {$result}
-        </p>
-    {/if}
-
-</div>
 
 <!-- <?php
+style="background-color:rgba(204,114,135,0.3);">
 //wyświeltenie listy błędów, jeśli istnieją
                      if (isset($messages)) {
                          if (count($messages) > 0) {

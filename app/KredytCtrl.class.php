@@ -67,12 +67,12 @@ class KredytCtrl {
             $this->messages->addInfo('Parametry poprawne.');
 
             //wykonanie operacji
-            switch ($this->form->op) {
+            switch ($this->form->operation) {
                 case 'stale' :
-                    $this->result = ratyStale($this->form->kwota, $this->form->procent, $this->form->raty);
+                    $this->result = $this->ratyStale($this->form->kwota, $this->form->procent, $this->form->raty);
                     break;
                 case 'zmienne' :
-                    $this->result = ratyZmienne($this->form->kwota, $this->form->procent, $this->form->raty);
+                    $this->result = $this->ratyZmienne($this->form->kwota, $this->form->procent, $this->form->raty);
                     break;
             }
 
@@ -88,12 +88,12 @@ class KredytCtrl {
     private function ratyZmienne($kwota, $procent, $raty) {
         
         $ratyZmienneResult=new KredytResult();
-        $ratyResult= array();
-        $lacznie = 0;
-        for ($i = 0; $i < $raty; $i++) {
+        $ratyResult=array();
+        $lacznie=null;
+        for ($i = 1; $i <= $raty; $i++) {
             $ck = $kwota / $raty;
             $co = ($kwota - $ck * $i) * ($procent / 100) * (30 / 365);
-            $ratyResult = + ($i + 1) . " rata: " . round($ck + $co, 2) . "<br/>";
+            $ratyResult[$i." rata "]= round($ck + $co, 2);
             $lacznie = $lacznie + $ck + $co;
         }
         $ratyZmienneResult->result=$ratyResult;
@@ -106,7 +106,7 @@ class KredytCtrl {
         $pow = pow(12 / (12 + $p1), $r);
         $ratyResult = $k * $p1 / (12 * (1 - ($pow)));
         $ratyStaleResult= new KredytResult;
-        $ratyStaleResult->result = $ratyResult;
+        $ratyStaleResult->result["wysokość raty"] = $ratyResult;
         $ratyStaleResult->lacznie = $ratyResult *$r;
         
         return $ratyStaleResult;
@@ -122,8 +122,8 @@ class KredytCtrl {
         $smarty->assign('config', $config);
         $smarty->assign('messages', $this->messages);
         $smarty->assign('form', $this->form);
-        $smarty->assign('result', $this->result->result);
-        $smarty->assign('lacznie', $this->result->lacznie);
+        $smarty->assign('result', $this->result);
+        
         
         $smarty->display('kredyt.tpl');
     }
