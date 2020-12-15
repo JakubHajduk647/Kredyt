@@ -1,18 +1,18 @@
 <?php
-/* Smarty version 3.1.34-dev-7, created on 2020-12-11 17:05:18
-  from 'C:\xampp\htdocs\kredyt.\templates\kredyt.tpl' */
+/* Smarty version 3.1.34-dev-7, created on 2020-12-14 22:50:08
+  from 'C:\xampp\htdocs\kredyt\app\views\templates\kredyt.tpl' */
 
 /* @var Smarty_Internal_Template $_smarty_tpl */
 if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
   'version' => '3.1.34-dev-7',
-  'unifunc' => 'content_5fd398be68e602_21067483',
+  'unifunc' => 'content_5fd7de10776771_51767448',
   'has_nocache_code' => false,
   'file_dependency' => 
   array (
-    '97a03da105eabda42dce3ded72aab4c9611e188a' => 
+    'f1c736aa608dda9a70cd95ba648a1aded9c7a9f6' => 
     array (
-      0 => 'C:\\xampp\\htdocs\\kredyt.\\templates\\kredyt.tpl',
-      1 => 1607702715,
+      0 => 'C:\\xampp\\htdocs\\kredyt\\app\\views\\templates\\kredyt.tpl',
+      1 => 1607982602,
       2 => 'file',
     ),
   ),
@@ -22,7 +22,7 @@ if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
     'file:bottom.tpl' => 1,
   ),
 ),false)) {
-function content_5fd398be68e602_21067483 (Smarty_Internal_Template $_smarty_tpl) {
+function content_5fd7de10776771_51767448 (Smarty_Internal_Template $_smarty_tpl) {
 ?>
 
 <!-- Wrapper -->
@@ -57,8 +57,8 @@ function content_5fd398be68e602_21067483 (Smarty_Internal_Template $_smarty_tpl)
                 </header>
                 <section>
                     <h2></h2>
-                    <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['app_url']->value;?>
-/app/kredyt.php">
+                    <form method="post" action="<?php echo $_smarty_tpl->tpl_vars['conf']->value->action_root;?>
+calcCompute">
                         <div class="row gtr-uniform">
                             <div class="col-6 col-12-xsmall">
                                 <label for= "kowta">Kwota</label>

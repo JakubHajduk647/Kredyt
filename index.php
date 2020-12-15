@@ -1,8 +1,8 @@
 <?php
-require_once dirname(__FILE__).'/config.php';
+require_once dirname(__FILE__).'/init.php';
 
 //przekierowanie przeglądarki klienta (redirect)
 //header("Location: "._APP_URL."/app/calc_view.php");
 
 //przekazanie żądania do następnego dokumentu ("forward")
-include $config->root_path.'/app/kredyt.php';
+include $config->root_path.'/ctrl.php';

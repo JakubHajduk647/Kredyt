@@ -3,11 +3,9 @@
 // W skrypcie definicji kontrolera nie trzeba dołączać problematycznego skryptu config.php,
 // ponieważ będzie on użyty w miejscach, gdzie config.php zostanie już wywołany.
 
-require_once $config->root_path . '/lib/smarty/libs/Smarty.class.php';
-require_once $config->root_path . '/lib/Messages.class.php';
-require_once $config->root_path . '/app/KredytForm.class.php';
-require_once $config->root_path . '/app/KredytResult.class.php';
-
+namespace app\controllers;
+use app\forms\KredytForm;
+use app\transfer\KredytResult;
 /** Kontroler kalkulatora
  * @author Przemysław Kudłacik
  *
@@ -23,7 +21,7 @@ class KredytCtrl {
      */
     public function __construct() {
         //stworzenie potrzebnych obiektów
-        $this->messages = new Messages();
+        $this->messages = getMessages();
         $this->form = new KredytForm();
         $this->result = new KredytResult();
     }
@@ -32,10 +30,10 @@ class KredytCtrl {
      * Pobranie parametrów
      */
     public function getParams() {
-        $this->form->kwota = isset($_REQUEST ['kwota']) ? $_REQUEST ['kwota'] : null;
-        $this->form->raty = isset($_REQUEST ['raty']) ? $_REQUEST ['raty'] : null;
-        $this->form->procent = isset($_REQUEST['procent']) ? $_REQUEST['procent'] : null;
-        $this->form->operation = isset($_REQUEST ['operation']) ? $_REQUEST ['operation'] : null;
+        $this->form->kwota = getFromRequest('kwota');
+        $this->form->raty =getFromRequest('raty');
+        $this->form->procent = getFromRequest('procent');
+        $this->form->operation = getFromRequest('operation');
     }
 
     public function validate() {
@@ -93,7 +91,7 @@ class KredytCtrl {
         for ($i = 1; $i <= $raty; $i++) {
             $ck = $kwota / $raty;
             $co = ($kwota - $ck * $i) * ($procent / 100) * (30 / 365);
-            $ratyResult[$i." rata "]= round($ck + $co, 2);
+            $ratyResult[$i." rata "]= $ck + $co;
             $lacznie = $lacznie + $ck + $co;
         }
         $ratyZmienneResult->result=$ratyResult;
@@ -116,16 +114,14 @@ class KredytCtrl {
      * Wygenerowanie widoku
      */
     public function generateView() {
-        global $config;
-
-        global $smarty ;
-        $smarty->assign('config', $config);
-        $smarty->assign('messages', $this->messages);
-        $smarty->assign('form', $this->form);
-        $smarty->assign('result', $this->result);
         
         
-        $smarty->display('kredyt.tpl');
+        getSmarty()->assign('messages', $this->messages);
+        getSmarty()->assign('form', $this->form);
+        getSmarty()->assign('result', $this->result);
+        
+        
+        getSmarty()->display('kredyt.tpl');
     }
 
 }

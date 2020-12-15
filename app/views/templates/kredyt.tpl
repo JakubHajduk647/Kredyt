@@ -31,7 +31,7 @@
                 </header>
                 <section>
                     <h2></h2>
-                    <form method="post" action="{$app_url}/app/kredyt.php">
+                    <form method="post" action="{$conf->action_root}calcCompute">
                         <div class="row gtr-uniform">
                             <div class="col-6 col-12-xsmall">
                                 <label for= "kowta">Kwota</label>
@@ -79,7 +79,7 @@
                     <h4>Wynik:</h4>
                     <tr><td>Łącznie:</td> <td>{$result->lacznie|string_format:"%.2f"}</td></tr>
                     {foreach from=$result->result key=k item=r}
-                        <tr><td>{$k}</td> <td>{$r}</td></tr>
+                        <tr><td>{$k}</td> <td>{$r|string_format:"%.2f"}</td></tr>
                     {/foreach}
 
                 {/if}
